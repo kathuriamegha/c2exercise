@@ -1,0 +1,93 @@
+[
+  {
+    "id": "Q01",
+    "question": "Why does the Chunk record deliberately carry no embedding?",
+    "expectedSources": ["domain/Chunk.java"],
+    "expectedKeywords": ["embedding"]
+  },
+  {
+    "id": "Q02",
+    "question": "What happens to the index when the same corpus is ingested twice?",
+    "expectedSources": ["ingest/IngestService.java", "store/VectorStore.java"],
+    "expectedKeywords": ["replace"]
+  },
+  {
+    "id": "Q03",
+    "question": "How does ingest handle a path that resolves outside the allowed root?",
+    "expectedSources": ["ingest/IngestService.java", "ingest/IngestException.java"],
+    "expectedKeywords": ["root"]
+  },
+  {
+    "id": "Q04",
+    "question": "What does the traversal guard resolve before comparing paths?",
+    "expectedSources": ["ingest/IngestService.java"],
+    "expectedKeywords": ["symlink"]
+  },
+  {
+    "id": "Q05",
+    "question": "Why is the DJL Predictor held in a ThreadLocal?",
+    "expectedSources": ["embed/DjlEmbeddingClient.java"],
+    "expectedKeywords": ["thread"]
+  },
+  {
+    "id": "Q06",
+    "question": "What normalisation is applied to an embedding vector before it is stored?",
+    "expectedSources": ["embed/DjlEmbeddingClient.java", "embed/Vectors.java"],
+    "expectedKeywords": ["norm"]
+  },
+  {
+    "id": "Q07",
+    "question": "Why is truncation disabled in the tokenizer used for chunking?",
+    "expectedSources": ["chunk/HfTextTokenizer.java"],
+    "expectedKeywords": ["truncation"]
+  },
+  {
+    "id": "Q08",
+    "question": "What happens when retrieved chunks exceed the context token budget?",
+    "expectedSources": ["retrieve/ContextAssembler.java", "retrieve/AssembledContext.java"],
+    "expectedKeywords": ["budget"]
+  },
+  {
+    "id": "Q09",
+    "question": "How does the extractive generator make hallucinated citations impossible?",
+    "expectedSources": ["answer/ExtractiveAnswerGenerator.java"],
+    "expectedKeywords": ["citation"]
+  },
+  {
+    "id": "Q10",
+    "question": "When is the query cache invalidated?",
+    "expectedSources": ["query/QueryCache.java"],
+    "expectedKeywords": ["index"]
+  },
+  {
+    "id": "Q11",
+    "question": "What does the eval harness measure and why does it exist?",
+    "expectedSources": ["eval/EvalService.java", "eval/EvalReport.java"],
+    "expectedKeywords": ["question"]
+  },
+  {
+    "id": "Q12",
+    "question": "Why are there two vector store implementations behind one interface?",
+    "expectedSources": ["store/VectorStore.java"],
+    "expectedKeywords": ["measur"]
+  },
+  {
+    "id": "Q13",
+    "question": "Which chunking strategy is the default and what does it split on first?",
+    "expectedSources": ["chunk/RecursiveChunker.java"],
+    "expectedKeywords": ["separator"]
+  },
+  {
+    "id": "Q14",
+    "question": "How is a blank question handled by the query endpoint?",
+    "expectedSources": ["query/QueryException.java", "query/QueryService.java"],
+    "expectedKeywords": ["blank"]
+  },
+  {
+    "id": "Q15",
+    "question": "What was the drift about the encoder sequence limit and chunk budgets?",
+    "expectedSources": ["SPEC-002-spec-rag.md"],
+    "expectedKeywords": ["token"],
+    "sourceType": "markdown"
+  }
+]

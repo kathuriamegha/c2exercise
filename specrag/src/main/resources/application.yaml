@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: specrag
+
+server:
+  port: 8081
+
+specrag:
+  corpus:
+    # AC-3. Ingest is refused for anything resolving outside this root. Narrow it before
+    # pointing this service at anything you would not want fully read into an index.
+    allowed-root: /Users/j.kumar/c2exercise
+  chunk:
+    # Capped by the encoder's 128-token sequence limit, not chosen freely (Drift #2).
+    # The app refuses to start if this exceeds what the model can actually embed.
+    max-tokens: 120
+    overlap-tokens: 24
+    default-chunker: recursive
+  embedding:
+    backend: djl
+    model-url: djl://ai.djl.huggingface.onnxruntime/sentence-transformers/all-MiniLM-L6-v2
+    dimensions: 384
+  retrieval:
+    default-top-k: 5
+    min-score: 0.25
+  context:
+    max-tokens: 1024
+
+logging:
+  level:
+    com.c2exercise.specrag: INFO
+    ai.djl: WARN
